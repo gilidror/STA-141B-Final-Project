@@ -69,7 +69,7 @@ server <- function(input, output) {
       c = input$year
       r <- GET("https://api.data.gov/ed/collegescorecard/v1/schools",
                query = list(
-                 api_key = "gU41PBUftyfJBVU8g8zTdKlm3IW9Mj4ilfGYEUbP",
+                 api_key = Sys.getenv("our_key"),
                  school.name = input$university,
                  fields=str_c(c,b)
                ))
@@ -90,7 +90,7 @@ server <- function(input, output) {
     if(input$anal == "tuition (no need to select year)"){
       r <- GET("https://api.data.gov/ed/collegescorecard/v1/schools",
                query = list(
-                 api_key = "gU41PBUftyfJBVU8g8zTdKlm3IW9Mj4ilfGYEUbP",
+                 api_key = Sys.getenv("our_key"),
                  school.name = input$university
                ))
       
@@ -111,7 +111,7 @@ server <- function(input, output) {
     if(input$anal == "graduation by gender (no need to select year)"){
       r <- GET("https://api.data.gov/ed/collegescorecard/v1/schools",
                query = list(
-                 api_key = "gU41PBUftyfJBVU8g8zTdKlm3IW9Mj4ilfGYEUbP",
+                 api_key = Sys.getenv("our_key"),
                  school.name = input$university
                ))
       
@@ -138,7 +138,7 @@ server <- function(input, output) {
       e=".student.demographics.men"
       r <- GET("https://api.data.gov/ed/collegescorecard/v1/schools",
                query = list(
-                 api_key = "gU41PBUftyfJBVU8g8zTdKlm3IW9Mj4ilfGYEUbP",
+                 api_key = Sys.getenv("our_key"),
                  school.city = input$city,
                  fields=str_c("school.name,",c,b,c,d),
                  per_page = 100
@@ -158,7 +158,7 @@ server <- function(input, output) {
     if(input$city_anal == "number of graduate students (no need to select year)"){
       r <- GET("https://api.data.gov/ed/collegescorecard/v1/schools",
                query = list(
-                 api_key = "gU41PBUftyfJBVU8g8zTdKlm3IW9Mj4ilfGYEUbP",
+                 api_key = Sys.getenv("our_key"),
                  school.city = input$city,
                  per_page = 100
                ))
